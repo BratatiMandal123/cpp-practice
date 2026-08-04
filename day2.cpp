@@ -1,18 +1,34 @@
 #include<iostream>
-#include <numeric>
+#include<vector>
 using namespace std;
-template<size_t N>
+ struct Transaction{
+    string sender,receiver;
+    double amount;
+    long long time;
+ };
+ 
+ int main(){
+    int n ;
+    cout<<"Enter the size of an array";
+    cin>>n;
+    vector<int>Transaction(n);
+
+    for(int i=0;i<n;i++){
+        cin>>t[i].sender>>t[i].receiver>>t[i].amount>>t[i].time;
+    }
+
+    vector<int>fraud(n,false);
+    for(int i=0;i<n;i++){
+        for(int j=1;j<n;j++){
+            if(t[i].sender ==t[j].sender &&
+            t[i].receiver==t[j].receiver &&
+            t[i].amount == t[j].amount &&
+            abs(t[i].time - t[j].time <=60)){
+                fraud[i]= true;
+                fraud[j]= true;
+            }
+        }
+    }
+ }
 
 
-double average(const int (&arr)[N]){
-    return accumulate(*&arr, *&arr + N, 0.0) / N;
-
-}
-int main(){
-    //Test Cases
-    int arr1[]={1,2,3,4,5};
-    cout<<"Test 1:"<<average(arr1)<<endl;
-    int arr2[]={1,2,1,1,5,1};
-    cout<<"Test 2:"<<average(arr2)<<endl;
-    return 0;
-}
